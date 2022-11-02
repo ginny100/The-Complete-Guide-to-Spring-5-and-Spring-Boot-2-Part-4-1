@@ -4,11 +4,11 @@
 
 Starting from this lesson, we will build a REST service that provides basic CRUD functionality. The flow of request is shown below:
 
-<img src="images/img7.png" width="500">
+<img src="images/img7.png" width="800">
 
 In this lesson, we create an endpoint for retrieving the list of players from the database. The REST client will send a request to `/players`. The REST service will respond with a JSON array of all players.
 
-<img src="images/img8.png" width="500">
+<img src="images/img8.png" width="300">
 
 In order to retrieve the list of players from the database, we will write a method `getAllPlayers` in the `PlayerService` class. This method will call a repository method and return a list of objects.
 
@@ -83,8 +83,8 @@ public List<Player> getAllPlayers() {
 
 We can test the REST endpoint with a web browser as well as Postman. You can run the code on your local machine and access the results by typing the URL `localhost:8080/players` in the web browser and it will return the response.
 
-<img src="images/img9.png" width="500">
+<img src="images/img9.png" width="800">
 
 We can test the same URL with Postman as well. For this, we will send a `GET` request to the URL as we did in the last lesson.
 
-<img src="images/img10.png" width="500">
+<img src="images/img10.png" width="800">
