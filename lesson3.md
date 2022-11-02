@@ -106,8 +106,6 @@ public class Player {
 }
 ```
 
-
-
 ### Database Initialization
 
 Hibernate can generate the DDL based on the `spring.jpa.hibernate.ddl.auto` property. We will use `create-drop` as its value in the `application.properties` file.
