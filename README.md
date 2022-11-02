@@ -13,7 +13,7 @@ This course is well-organized with high-quality content.
 - Lesson 3: [REST API Design](https://github.com/ginny100/The-Complete-Guide-to-Spring-5-and-Spring-Boot-2-Part-4/blob/master/lesson3.md)
 - Lesson 4: [Creating a REST Controller](https://github.com/ginny100/The-Complete-Guide-to-Spring-5-and-Spring-Boot-2-Part-4/blob/master/lesson4.md)
 - Lesson 5: [@GetMapping](https://github.com/ginny100/The-Complete-Guide-to-Spring-5-and-Spring-Boot-2-Part-4/blob/master/lesson5.md)
-- Lesson 6: [@PathVariable]()
+- Lesson 6: [@PathVariable](https://github.com/ginny100/The-Complete-Guide-to-Spring-5-and-Spring-Boot-2-Part-4/blob/master/lesson6.md)
 - Lesson 7: [@PostMapping]()
 - Lesson 8: [@PutMapping]()
 - Lesson 9: [@PatchMapping]()
