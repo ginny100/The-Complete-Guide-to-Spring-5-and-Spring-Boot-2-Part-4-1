@@ -8,20 +8,19 @@ This course is well-organized with high-quality content.
 
 ### 6. Spring REST
 
-- Lesson 1: [Developing REST services in Spring]()
-- Lesson 2: [JSON Data Binding]()
-- Lesson 3: [REST Client - Postman]()
-- Lesson 4: [REST API Design]()
-- Lesson 5: [Creating a REST Controller]()
-- Lesson 6: [@GetMapping]()
-- Lesson 7: [@PathVariable]()
-- Lesson 8: [@PostMapping]()
-- Lesson 9: [@PutMapping]()
-- Lesson 10: [@PatchMapping]()
-- Lesson 11: [@DeleteMapping]()
-- Lesson 12: [Exception Handling I]()
-- Lesson 13: [Exception Handling II]()
-- Lesson 14: [Spring Data REST]()
+- Lesson 1: [Developing REST services in Spring](https://github.com/ginny100/The-Complete-Guide-to-Spring-5-and-Spring-Boot-2-Part-4/blob/master/lesson1.md)
+- Lesson 2: [JSON Data Binding](https://github.com/ginny100/The-Complete-Guide-to-Spring-5-and-Spring-Boot-2-Part-4/blob/master/lesson2.md)
+- Lesson 3: [REST API Design]()
+- Lesson 4: [Creating a REST Controller]()
+- Lesson 5: [@GetMapping]()
+- Lesson 6: [@PathVariable]()
+- Lesson 7: [@PostMapping]()
+- Lesson 8: [@PutMapping]()
+- Lesson 9: [@PatchMapping]()
+- Lesson 10: [@DeleteMapping]()
+- Lesson 11: [Exception Handling I]()
+- Lesson 12: [Exception Handling II]()
+- Lesson 13: [Spring Data REST]()
 
 ## Other Parts
 
