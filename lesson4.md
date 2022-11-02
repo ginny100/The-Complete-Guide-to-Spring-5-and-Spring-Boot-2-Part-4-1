@@ -36,8 +36,8 @@ This code creates a RESTful endpoint `/welcome` which can be accessed from the R
 
 We can test the REST endpoint with a web browser as well as Postman. You can run the code on your local machine and access the results by typing the URL `localhost:8080/welcome` in the web browser and it will return the response.
 
-<img src="images/img5.png" width="500">
+<img src="images/img5.png" width="800">
 
 We can test the same URL with Postman as well. For this, we will send a `GET` request to the URL as shown below:
 
-<img src="images/img6.png" width="500">
+<img src="images/img6.png" width="800">
