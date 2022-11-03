@@ -73,7 +73,7 @@ public class PlayerService {
      * Method to partial update a player
      * @param id
      * @param partialPlayer
-     * @return
+     * @return the updated Player object
      */
     public Player patch(int id, Map<String, Object> partialPlayer) {
 
@@ -113,6 +113,20 @@ public class PlayerService {
 
         //update the found player
         repo.updateTitles(id, titles);
+    }
+
+    /**
+     * Method to delete a player
+     * @param id
+     * @return a String to indicate the player with that id has been deleted
+     */
+    public String deletePlayer(int id) {
+        try {
+            repo.deleteById(id);
+        } catch(Exception e) {
+            return "Player with id " + id + " is not found";
+        }
+        return "Deleted player with id: " + id;
     }
 
 }
