@@ -104,7 +104,7 @@ To test the new endpoint, we create a `PUT` request in Postman. Suppose we want 
 
 <img src="images/img21.png" width="800">
 
-After the request has been sent, the player with id 2 is now Nadal. This can be verified by creating a `GET` request to `localhost:8080/players/2`.
+After the request has been sent, the player with `id` 2 is now Nadal. This can be verified by creating a `GET` request to `localhost:8080/players/2`.
 
 <img src="images/img22.png" width="800">
 
