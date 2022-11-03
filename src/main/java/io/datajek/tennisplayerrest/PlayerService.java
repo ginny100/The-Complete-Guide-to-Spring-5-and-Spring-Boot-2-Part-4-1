@@ -28,19 +28,21 @@ public class PlayerService {
      */
     public Player getPlayer(int id) {
         Optional<Player> tempPlayer = repo.findById(id);
-        Player p = null;
 
-        //if the Optional has a value, assign it to p
-        if(tempPlayer.isPresent())
-            p = tempPlayer.get();
-        //if value is not found, throw a runtime exception
-        else
-            throw new RuntimeException("Player with id " + id + " not found.");
+        if(tempPlayer.isEmpty())
+            throw new RuntimeException("Player with id {"+ id +"} not found");
 
-        return p;
+        return tempPlayer.get();
     }
 
-    //method to add player
+    /**
+     * Method to add player
+     * @param p
+     * @return the new player that has been added
+     */
+    public Player addPlayer(Player p) {
+        return repo.save(p);
+    }
 
     //method to update a player
 
