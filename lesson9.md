@@ -139,3 +139,61 @@ After the request has been sent, the player with `id` 1 now has titles 161. This
 We can also verify by making a `GET` request to `localhost:8080/players`. Notice that player with `id` 1 has been partially updated in the table.
 
 <img src="images/img27.png" width="800">
+
+### Queries for partial update
+
+A point to note here is that we have used the `save` method to applying the patch. This method updates _all_ the columns in the table. For large objects with a lot of fields, this can have a performance impact. To avoid this, we can implement _queries_ for partial updates. These queries can target frequently updated columns. 
+
+If we want to update the `titles` column of the `player` table, we can create an `updateTitles` method implementing a query in the `PlayerRepository` interface. This method takes two arguments, the `id` of the player and the `titles`. 
+
+The `@Query` annotation is used to implement an update query as follows:
+
+```java
+@Modifying
+@Query("update Player p set p.titles = :titles where p.id = :id")
+void updateTitles(@Param("id") int id, @Param("titles") int titles);
+```
+
+The query must be used with the `@Modifying` annotation to execute the `UPDATE` query. 
+
+The `@Param` annotation binds the method parameters to the query. This method will only change a _single_ column of the table unlike the `save` method which updates all the columns of the table.
+
+After writing the repository method, we move to the service layer. The service layer will implement the `updateTitles` method as follows:
+
+```java
+@Transactional
+public void updateTitles(int id, int titles) {
+    repo.updateTitles(id, titles);
+}
+```
+
+The `@Transactional` annotation ensures that the database is left in a consistent state. The transaction is either committed or rolled back in case of failure.
+
+Now, in the `PlayerController` class, we can define a new `PATCH` mapping for `/players/{id}/titles` as follows:
+
+```java
+@PatchMapping("/players/{id}/titles")
+public void updateTitles(@PathVariable int id, @RequestBody int titles) {
+    service.updateTitles(id, titles);           
+}
+```
+
+`id` is the path variable. This method accepts an integer from the request body.
+
+To test the new endpoint, we can send a `PATCH` request to `localhost:8080/players/1/titles`. The request body in JSON format contains an integer value of the title count:
+
+```json
+157
+```
+
+<img src="images/img28.png" width="800">
+
+The REST API responds with `200` status code which indicates that the request was successful.
+
+After the `PATCH` request has been sent, the player with `id` 1 now has titles 157. This can be verified by creating a `GET` request to `localhost:8080/players/1`.
+
+<img src="images/img29.png" width="800">
+
+We can also verify by making a `GET` request to `localhost:8080/players`. Notice that player with `id` 1 has been partially updated in the table with title count of 157.
+
+<img src="images/img30.png" width="800">

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
 
+import javax.transaction.Transactional;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
@@ -92,6 +93,26 @@ public class PlayerService {
             throw new RuntimeException("Player with id {" + id + "} not found");
         }
         return repo.save(player.get());
+    }
+
+    /**
+     * Method to update a single field
+     * @param id
+     * @param titles
+     */
+    @Transactional
+    public void updateTitles(int id, int titles) {
+
+        //get player object by Id
+        Optional<Player> tempPlayer = repo.findById(id);
+
+        //throw an exception if that player is not found
+        if(tempPlayer.isEmpty()) {
+            throw new RuntimeException("Player with id {" + id + "} not found");
+        }
+
+        //update the found player
+        repo.updateTitles(id, titles);
     }
 
 }
