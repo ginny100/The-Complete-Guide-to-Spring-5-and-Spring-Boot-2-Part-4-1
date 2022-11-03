@@ -17,7 +17,7 @@ This course is well-organized with high-quality content.
 - Lesson 7: [@PostMapping](https://github.com/ginny100/The-Complete-Guide-to-Spring-5-and-Spring-Boot-2-Part-4/blob/master/lesson7.md)
 - Lesson 8: [@PutMapping](https://github.com/ginny100/The-Complete-Guide-to-Spring-5-and-Spring-Boot-2-Part-4/blob/master/lesson8.md)
 - Lesson 9: [@PatchMapping](https://github.com/ginny100/The-Complete-Guide-to-Spring-5-and-Spring-Boot-2-Part-4/blob/master/lesson9.md)
-- Lesson 10: [@DeleteMapping]()
+- Lesson 10: [@DeleteMapping](https://github.com/ginny100/The-Complete-Guide-to-Spring-5-and-Spring-Boot-2-Part-4/blob/master/lesson10.md)
 - Lesson 11: [Exception Handling I]()
 - Lesson 12: [Exception Handling II]()
 - Lesson 13: [Spring Data REST]()
