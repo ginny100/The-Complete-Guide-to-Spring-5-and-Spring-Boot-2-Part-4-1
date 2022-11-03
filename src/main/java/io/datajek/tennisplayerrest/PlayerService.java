@@ -2,8 +2,11 @@ package io.datajek.tennisplayerrest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
 
+import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -65,6 +68,30 @@ public class PlayerService {
         return repo.save(player);
     }
 
-    //method to partial update a player
+    /**
+     * Method to partial update a player
+     * @param id
+     * @param partialPlayer
+     * @return
+     */
+    public Player patch(int id, Map<String, Object> partialPlayer) {
+
+        //get player object by Id
+        Optional<Player> player = repo.findById(id);
+
+        //check if that found player is present in the database
+        if (player.isPresent()) {
+            //update fields using Map
+            partialPlayer.forEach((key, value) -> {
+                System.out.println("Key: " + key + " Value: " + value);
+                Field field = ReflectionUtils.findField(Player.class, key);
+                ReflectionUtils.makeAccessible(field);
+                ReflectionUtils.setField(field, player.get(), value);
+            });
+        } else {
+            throw new RuntimeException("Player with id {" + id + "} not found");
+        }
+        return repo.save(player.get());
+    }
 
 }
