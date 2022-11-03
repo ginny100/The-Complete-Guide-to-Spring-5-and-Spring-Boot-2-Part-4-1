@@ -35,6 +35,11 @@ public class PlayerController {
         return service.updatePlayer(id, player);
     }
 
+    @PutMapping("/players/2/{id}")
+    public Player updatePlayer2(@RequestBody Player player, @PathVariable int id) {
+        return service.updatePlayer2(id, player);
+    }
+
     @PatchMapping("/players/{id}")
     public Player partialUpdate(@PathVariable int id, @RequestBody Map<String, Object> playerPatch) {
         return service.patch(id, playerPatch);
@@ -48,5 +53,10 @@ public class PlayerController {
     @DeleteMapping("/players/{id}")
     public String deletePlayer(@PathVariable int id) {
         return service.deletePlayer(id);
+    }
+
+    @DeleteMapping("/players/2/{id}")
+    public void deletePlayer2(@PathVariable int id) {
+        service.deletePlayer2(id);
     }
 }

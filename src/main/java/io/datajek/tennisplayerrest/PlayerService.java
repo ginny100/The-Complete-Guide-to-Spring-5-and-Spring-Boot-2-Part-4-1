@@ -31,10 +31,15 @@ public class PlayerService {
      * @return a Player
      */
     public Player getPlayer(int id) {
+
+        //get player object by Id
         Optional<Player> tempPlayer = repo.findById(id);
 
-        if(tempPlayer.isEmpty())
-            throw new RuntimeException("Player with id {"+ id +"} not found");
+        //check if that found player is present in the database
+        if(tempPlayer.isEmpty()) {
+//            throw new RuntimeException("Player with id {" + id + "} not found");
+            throw new PlayerNotFoundException("Player with id {" + id + "} not found");
+        }
 
         return tempPlayer.get();
     }
@@ -70,6 +75,25 @@ public class PlayerService {
     }
 
     /**
+     * Method to update a player
+     * @param id
+     * @param p
+     * @return the updated Player object
+     */
+    public Player updatePlayer2(int id, Player p) {
+
+        //get player object by Id
+        Optional<Player> tempPlayer = repo.findById(id);
+
+        //check if that found player is present in the database
+        if(tempPlayer.isEmpty())
+            throw new PlayerNotFoundException("Player with id {" + id + "} not found");
+
+        p.setId(id);
+        return repo.save(p);
+    }
+
+    /**
      * Method to partial update a player
      * @param id
      * @param partialPlayer
@@ -90,8 +114,10 @@ public class PlayerService {
                 ReflectionUtils.setField(field, player.get(), value);
             });
         } else {
-            throw new RuntimeException("Player with id {" + id + "} not found");
+//            throw new RuntimeException("Player with id {" + id + "} not found");
+            throw new PlayerNotFoundException("Player with id {" + id + "} not found");
         }
+
         return repo.save(player.get());
     }
 
@@ -108,7 +134,8 @@ public class PlayerService {
 
         //throw an exception if that player is not found
         if(tempPlayer.isEmpty()) {
-            throw new RuntimeException("Player with id {" + id + "} not found");
+//            throw new RuntimeException("Player with id {" + id + "} not found");
+            throw new PlayerNotFoundException("Player with id {" + id + "} not found");
         }
 
         //update the found player
@@ -127,6 +154,23 @@ public class PlayerService {
             return "Player with id " + id + " is not found";
         }
         return "Deleted player with id: " + id;
+    }
+
+    /**
+     * Method to delete a player without returning any message
+     * @param id
+     */
+    public void deletePlayer2(int id) {
+
+        //get player object by Id
+        Optional<Player> tempPlayer = repo.findById(id);
+
+        //throw an exception if that player is not found
+        if(tempPlayer.isEmpty()) {
+            throw new PlayerNotFoundException("Player with id {" + id + "} not found");
+        }
+
+        repo.delete(tempPlayer.get());
     }
 
 }
