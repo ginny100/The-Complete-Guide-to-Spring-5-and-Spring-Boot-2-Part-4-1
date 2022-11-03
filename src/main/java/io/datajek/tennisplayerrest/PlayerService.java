@@ -44,7 +44,26 @@ public class PlayerService {
         return repo.save(p);
     }
 
-    //method to update a player
+    /**
+     * Method to update a player
+     * @param id
+     * @param p
+     * @return the updated Player object
+     */
+    public Player updatePlayer(int id, Player p) {
+
+        //get player object by Id
+        Player player = repo.getReferenceById(id);
+
+        //update player details in database
+        player.setName(p.getName());
+        player.setNationality(p.getNationality());
+        player.setBirthDate(p.getBirthDate());
+        player.setTitles(p.getTitles());
+
+        //save updates
+        return repo.save(player);
+    }
 
     //method to partial update a player
 

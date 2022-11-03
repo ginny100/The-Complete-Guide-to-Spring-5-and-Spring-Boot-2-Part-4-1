@@ -3,11 +3,7 @@ package io.datajek.tennisplayerrest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PlayerController {
@@ -29,5 +25,10 @@ public class PlayerController {
     public Player addPlayer(@RequestBody Player player) {
         player.setId(0);
         return service.addPlayer(player);
+    }
+
+    @PutMapping("/players/{id}")
+    public Player updatePlayer(@RequestBody Player player, @PathVariable int id) {
+        return service.updatePlayer(id, player);
     }
 }
